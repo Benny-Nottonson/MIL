@@ -39,6 +39,6 @@ fn save_image(img: Image, path: String = "result.png"):
                 for k in range(img.shape.channels()):
                     result[i][j][k] = img.data.data[(i * img.shape.width() + j) * img.shape.channels() + k]
 
-        pil.fromarray(result).save(path)
+        pil.fromarray(result, mode = str(img.mode)).save(path)
     except e:
         print("Error saving Image: ", e)
